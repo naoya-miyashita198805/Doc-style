@@ -1,0 +1,321 @@
+// Place all the styles related to the documents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{margin:0;padding:0;color:#CCC;}
+.wrapper {
+  background-color: #999999;
+  height: 100vh;
+  width: 100%;
+  .header {
+    background-color: #c7c2c2;
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    .side-header {
+      height: 15vh;
+      width: 20%;
+      background-color: #504d4d;
+      .set-header {
+        display: flex;
+        .fas {
+          font-size: 400%;
+          margin: 1vh 2%;
+          padding-left: 3%;
+          color: green;
+        }
+        .devise-box {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 5vh;
+          .log {
+            // background-color: #999999;
+            width: 40%;
+            height: 3vh;
+            color: #CCC;
+            // border-style: none;
+            // font-style: none;
+            text-decoration: none;
+          }
+          .sign {
+            // background-color: #b9b5b5;
+            width: 40%;
+            height: 3vh;
+            color: #CCC;
+            text-decoration: none;
+          }
+        }
+      }
+      .name {
+        font-size: 130%;
+        margin-top: 1vh;
+        padding-left: 5px;
+        display: flex;
+      }
+      .name p {
+        font-size: 80%;
+      }
+    }
+    
+    .main-header {
+      background-color: #d1caca;
+      height: 15vh;
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      .left-header {
+        height: 13vh;
+        width: 80%;
+        background-color: #ffffff;
+        margin: 1vh auto;
+        margin-left: 2%;
+        margin-right: 2%;
+        .form {
+          height: 13vh;
+          width: 100%;
+          .search-box {
+            background-color: #d8d6d6;
+            width: 70%;
+            height: 5vh;
+            margin: 7vh 0 0 1%;
+            border-style: none;
+            padding: 0 5px 0 5px;
+            border: 1px solid #c7c2c2;
+          }
+          .search-btn {
+            background-color: #7c7777;
+            width: 10%;
+            height: 5vh;
+            margin: 7vh 0 0 1%;
+            cursor: pointer;
+            text-align: center;
+            line-height: 5vh;
+            font-size: large;
+          }
+        }  
+      }
+      .right-header {
+        background-color: #504d4d;
+        height: 15vh;
+        width: 20%;
+        display: flex;
+        justify-content: flex-end;
+        .favorite {
+          margin-right: 5%;
+          .fa-star {
+            font-size: 200%;
+            cursor: pointer;
+            margin-top: 10vh;
+            color: #CCC;
+            &:hover {
+              color: yellow;
+            }
+          }
+          .fa-bars {
+            font-size: 200%;
+            cursor: pointer;
+            margin-top: 10vh;
+            color: #CCC;
+            &:hover {
+              color:#ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+  .contents {
+    background-color: #f1ecec;
+    height: 80vh; 
+    width: 88%;
+    margin: 10px auto;
+    filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.8));
+    overflow: scroll;
+    .content-box {
+      background-color: rgb(104, 101, 101);
+      height: 45vh;
+      width: 80%;
+      margin: 15px auto;
+      display: flex;
+      align-items: center;
+      // border: solid 1px #f6f6f6;
+      filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
+      .body-content {
+        border: 1px solid #c7c2c2;
+        margin: 0 auto;
+        width: 95%;
+        height: 42vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left-content {
+          background-color: #e7e0e0;
+          height: 40vh;
+          width: 45%;
+          margin: 0 5px;
+          text-align: center;
+          .far {
+            font-size: 500%;
+            line-height: 40vh;
+            color: #CCC;
+          }
+        }
+        .right-content {
+          background-color: rgb(104, 101, 101);
+          height: 40vh;
+          width: 55%;
+          margin-right: 5px;
+          
+          .top-box {
+            background-color: rgb(104, 101, 101);
+            height: 20vh;
+            width: 100%;
+            // display: flex;
+            position: relative;
+            .fa-star {
+              font-size: 150%;
+              margin-top: 3vh;
+              padding: 0 5px;
+              color: #CCC;
+              &:hover {
+                color: yellow;
+              }
+            }
+            .fa-edit {
+              font-size: 150%;
+              margin-top: 3vh;
+              padding: 0 5px;
+              color: #CCC;
+              &:hover {
+                color: skyblue;
+              }
+            }
+            .fas {
+              font-size: 150%;
+              margin-top: 3vh;
+              padding: 0 5px;
+              color: #CCC;
+              position: absolute;
+              right: 0;
+              &:hover {
+                color:#ffffff;
+              }
+            }
+            .title {
+              background-color: #fff;
+              height: 10vh;
+              width: 98%;
+              margin: 2vh 3% 0 1%;
+              // margin-left: 5px;
+              font-size: 110%;
+            }
+            
+          }
+          .bottom-box {
+            background-color: #fff;
+            height: 18vh;
+            width: 98%;
+            margin: 0 auto;
+            align-items: center;
+            margin: 8px 5px 0 5px;
+            font-size: 150%;
+          }
+        }
+      }
+    }
+  }
+  .footer{
+    position:fixed;
+    z-index:100;
+    width:100%;
+    bottom:0px;
+    // border-top:#222 solid 1px;
+    .footer-btn {
+      position:fixed;
+      right:0px;
+      bottom:0px;
+      width:50px;
+      text-align:center;
+      padding:10px;
+      background:#333;
+      color:#eee;
+      font-weight:bold;
+      cursor:pointer;
+      user-select: none;
+      &:hover {
+        background:#eee;
+        color:#666;
+      }
+    }
+    .footer-content {
+      text-align:center;
+      background:#666;
+      // opacity: 0.8;
+      padding:10px;
+      display: none;
+      .form-box {
+        width: 90%;
+        height: 20vh;
+        background-color: #fff;
+        .body-form {
+          display: flex;
+          justify-content: space-between;
+          .left-form {
+            background-color: #e7e0e0;
+            height: 18vh;
+            width: 25%;
+            text-align: center;
+            padding-top: 2vh;
+            color: #999999;
+          }
+          .right-form {
+            background-color: #504d4d;
+            height: 20vh;
+            width: 100%;
+            .new-message {
+              .form-field {
+                display: flex;
+                .comment-field {
+                  height: 5vh;
+                  width: 89%;
+                  margin: 1vh 1%;
+                }
+                .label-box {
+                  height: 5vh;
+                  width: 5%;
+                  margin-top: 1vh;
+                  
+                }
+                .file_field {
+                  border-style: none;
+                  margin-top: 2vh;
+                }
+              }
+              .far {
+                font-size: 200%;
+                cursor: pointer;
+                margin-top: 1vh;
+                margin-left: 50%;
+              }
+              .area-box {
+                display: flex;
+                .comment-area {
+                  height: 9vh;
+                  width: 90%;
+                  margin: 1vh 1%;
+                  resize: none;
+                }
+                .submit {
+                  height: 4vh;
+                  width: 7%;
+                  border-style: none;
+                  margin-top: 6vh;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

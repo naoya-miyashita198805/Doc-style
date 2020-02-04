@@ -1,0 +1,110 @@
+<div class = "wrapper">
+  <div class = "header">
+    <div class = "side-header">
+      <div class = "set-header">
+        <a href = "#"><i class="fas fa-cubes"></i></a>
+        <div class = "devise-box">
+          <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log"%>
+          <div class = "sign"></div>
+          <% else %>
+          <%= link_to "ログイン",  new_user_session_path, class: "log"%>
+          <%= link_to "新規登録", new_user_registration_path, class: "sign"%>
+          <%# <div class = "log-in">ログイン</div> %>
+          <%# <div class = "sign-up">新規登録</div> %>
+          <% end %>
+        </div>
+      </div>
+      <div class = "name">
+        <%= current_user.name %>
+        <% if current_user %>
+          <p>さま</p>
+        <% end %>
+      </div>
+    </div>
+   
+    <div class = "main-header">
+      <div class = "left-header">
+        <%= form_with( class: "form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "資料を検索する（表題が検索対象です）",class: "search-box" %> 
+          <%= form.submit "検索", class: 'search-btn'%>
+        <% end %>
+      </div>
+      <div class = "right-header">
+        <div class = "favorite">
+          <a href = "#"><i class="fas fa-star"></i></a>
+        </div>
+        <div class = "favorite">
+          <a href = "#"><i class="fas fa-bars"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class = "contents">
+    <div class = "content-box">
+      <div class = " body-content">
+        <div class = "left-content">
+          <i class="far fa-image"></i>
+        </div>
+        <div class = "right-content">
+          
+          <div class = "top-box">
+            <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
+            <a href = "#"><i class="far fa-edit">編集</i></a>
+            <a href = "#"><i class="fas fa-trash"></i></a>
+            <div class = "title">title</div>
+            
+          </div>
+          <div class = "bottom-box">comment</div>
+        </div>
+      </div>
+    </div>
+    <div class = "content-box">
+      <div class = " body-content">
+        <div class = "left-content">
+          <i class="far fa-image"></i>
+        </div>
+        <div class = "right-content">
+          
+          <div class = "top-box">
+            <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
+            <a href = "#"><i class="far fa-edit">編集</i></a>
+            <a href = "#"><i class="fas fa-trash"></i></a>
+            <div class = "title">title</div>
+            
+          </div>
+          <div class = "bottom-box">comment</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-btn"><p id = "icon">登録の呼び出し</P></div>
+    <div class="footer-content">
+      <div class = "form-box">
+        <div class = "body-form">
+          <div class = "left-form">
+            <div>スクリーンショットのやり方</div>
+            <div>ctr + shift + 3 (全体)</div>
+            <div>ctr + shift + 4 (範囲指定)</div>
+          </div>
+          <div class = "right-form">
+            <%= form_with(class: "new-message") do |form| %>
+              <div class = "form-field">
+                <%= form.text_field :title, placeholder: "表題を記入してください。また右記のアイコンから登録したいpngを選択できます。", class: "comment-field"%>
+                <%= form.label :image, class: "label-box" do%>
+                <%= form.file_field :image, class: "file_field", style: "display: none;" %>
+                  <i class="far fa-image"></i>
+                <%end%>
+              </div>
+              <div class = "area-box">
+                <%= form.text_area :comment, placeholder: "自由記入欄", class: "comment-area" %>
+                <%= form.submit value: "登録", class: "submit"%>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
