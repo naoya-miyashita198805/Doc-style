@@ -1,0 +1,141 @@
+body{margin:0;padding:0 }
+.edit-wrapper {
+  background-color: #999999;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  // opacity: 0.5;
+  background: rgba(156, 206, 235, 0.9);
+  .edit-contents {
+    // background-color: #f1ecec;
+    height: 80vh; 
+    width: 88%;
+    margin: 10px auto;
+    // filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.8));
+    overflow: scroll;
+    .edit-content-box {
+      background-color: rgb(104, 101, 101);
+      height: 45vh;
+      width: 92%;
+      margin: 0 auto;
+      margin-top: 15vh;
+      display: flex;
+      align-items: center;
+      // border: solid 1px #f6f6f6;
+      // filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
+      .edit-body-content {
+        border: 1px solid #c7c2c2;
+        margin: 0 auto;
+        width: 95%;
+        height: 42vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .edit-left-content {
+          background-color: rgb(104, 101, 101);
+          height: 40vh;
+          width: 45%;
+          margin: 0 5px;
+          border: 1px solid #c7c2c2;
+          text-align: center;
+          .edit-image {
+            padding-top: 1vh;
+          }
+          // .far {
+          //   font-size: 500%;
+          //   line-height: 40vh;
+          //   color: #CCC;
+          // }
+        }
+        .edit-right-content {
+          background-color: rgb(104, 101, 101);
+          height: 40vh;
+          width: 55%;
+          margin-right: 5px;
+          
+          .edit-top-box {
+            background-color: rgb(104, 101, 101);
+            height: 20vh;
+            width: 100%;
+            // display: flex;
+            position: relative;
+            .fa-star {
+              font-size: 150%;
+              margin-top: 3vh;
+              padding: 0 5px;
+              color: #CCC;
+              &:hover {
+                color: yellow;
+              }
+            }
+            .fa-edit  {
+              font-size: 150%;
+              margin-top: 3vh;
+              
+              color: #CCC;
+              cursor: pointer;
+            }
+            .fa-window-close {
+              font-size: 150%;
+              color: #CCC;
+              &:hover {
+                color: #ffffff;
+              }
+            }
+            .edit-submit {
+              border-style: none;
+              font-size: 150%;
+              color: #CCC;
+              background-color: rgb(104, 101, 101);
+              cursor: pointer;
+              padding-right: 5px;
+              user-select: none;
+              &:hover {
+                color: skyblue;
+              }
+            }
+            .fas {
+              font-size: 150%;
+              margin-top: 4vh;
+              padding: 0 5px;
+              color: #CCC;
+              position: absolute;
+              right: 0;
+              &:hover {
+                color:#ffffff;
+              }
+            }
+            .edit-title {
+              background-color: #fff;
+              height: 10vh;
+              width: 98%;
+              margin: 2vh 3% 0 1%;
+              // margin-left: 5px;
+              font-size: 100%;
+              box-sizing:border-box;
+              border:none;
+              resize: none;
+            }
+            
+          }
+          .edit-bottom-box {
+            background-color: #fff;
+            height: 18vh;
+            width: 98%;
+            margin: 0 auto;
+            align-items: center;
+            margin: 8px 5px 0 5px;
+            font-size: 120%;
+            box-sizing:border-box;
+            border:none;
+            resize: none;
+          }
+        }
+      }
+    }
+  }
+}

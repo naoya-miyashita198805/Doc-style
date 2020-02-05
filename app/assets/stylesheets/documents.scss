@@ -1,11 +1,12 @@
 // Place all the styles related to the documents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body{margin:0;padding:0;color:#CCC;}
+body{margin:0;padding:0 }
 .wrapper {
   background-color: #999999;
   height: 100vh;
   width: 100%;
+  position: relative;
   .header {
     background-color: #c7c2c2;
     height: 15vh;
@@ -51,6 +52,7 @@ body{margin:0;padding:0;color:#CCC;}
         margin-top: 1vh;
         padding-left: 5px;
         display: flex;
+        color: #CCC;
       }
       .name p {
         font-size: 80%;
@@ -149,11 +151,15 @@ body{margin:0;padding:0;color:#CCC;}
         justify-content: space-between;
         align-items: center;
         .left-content {
-          background-color: #e7e0e0;
+          background-color: rgb(104, 101, 101);
           height: 40vh;
           width: 45%;
           margin: 0 5px;
+          border: 1px solid #c7c2c2;
           text-align: center;
+          .image {
+            padding-top: 1vh;
+          }
           .far {
             font-size: 500%;
             line-height: 40vh;
@@ -186,6 +192,7 @@ body{margin:0;padding:0;color:#CCC;}
               margin-top: 3vh;
               padding: 0 5px;
               color: #CCC;
+              cursor: pointer;
               &:hover {
                 color: skyblue;
               }
@@ -207,7 +214,10 @@ body{margin:0;padding:0;color:#CCC;}
               width: 98%;
               margin: 2vh 3% 0 1%;
               // margin-left: 5px;
-              font-size: 110%;
+              font-size: 100%;
+              box-sizing:border-box;
+              border:none;
+              resize: none;
             }
             
           }
@@ -218,7 +228,10 @@ body{margin:0;padding:0;color:#CCC;}
             margin: 0 auto;
             align-items: center;
             margin: 8px 5px 0 5px;
-            font-size: 150%;
+            font-size: 120%;
+            box-sizing:border-box;
+            border:none;
+            resize: none;
           }
         }
       }
@@ -252,7 +265,9 @@ body{margin:0;padding:0;color:#CCC;}
       background:#666;
       // opacity: 0.8;
       padding:10px;
+      width: 100%;
       display: none;
+      float: right;
       .form-box {
         width: 90%;
         height: 20vh;
@@ -263,7 +278,7 @@ body{margin:0;padding:0;color:#CCC;}
           .left-form {
             background-color: #e7e0e0;
             height: 18vh;
-            width: 25%;
+            width: 30%;
             text-align: center;
             padding-top: 2vh;
             color: #999999;
@@ -277,8 +292,9 @@ body{margin:0;padding:0;color:#CCC;}
                 display: flex;
                 .comment-field {
                   height: 5vh;
-                  width: 89%;
+                  width: 87%;
                   margin: 1vh 1%;
+                  resize: none;
                 }
                 .label-box {
                   height: 5vh;
@@ -296,14 +312,16 @@ body{margin:0;padding:0;color:#CCC;}
                 cursor: pointer;
                 margin-top: 1vh;
                 margin-left: 50%;
+                color: #ccc;
               }
               .area-box {
                 display: flex;
                 .comment-area {
                   height: 9vh;
-                  width: 90%;
+                  width: 89%;
                   margin: 1vh 1%;
                   resize: none;
+                  font-size: 100%;
                 }
                 .submit {
                   height: 4vh;
