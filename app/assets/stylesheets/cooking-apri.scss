@@ -1,0 +1,50 @@
+.btn-box {
+  /* background-color: #efefef; */
+  background-image: url(https://www.kikkoman.co.jp/img/homecook_s0201_010_l.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  z-index: 29;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  #act {
+    height: 100px;
+    width: 100%;
+    background-color: orange;
+    text-align: center;
+    color: #efefef;
+    font-size: 50px;
+    line-height: 100px;
+    margin-bottom: 200px;
+  }
+  #btn {
+    width: 600px;
+    height: 200px;
+    background-color: #ef454a;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 200px;
+    color: #fff;
+    font-size: 42px;
+    cursor: pointer;
+    box-shadow: 0 10px 0 #d1483e;
+    user-select: none;
+    
+  }
+  
+  #btn:hover {
+    opacity: 0.9;
+  }
+  
+  #btn:active {
+    box-shadow: 0px 0px 0 #d1483e;
+    /* padding-top: 5px; */
+    transform: translateY(10px);
+    border-bottom: none;
+  }
+}
+
+
