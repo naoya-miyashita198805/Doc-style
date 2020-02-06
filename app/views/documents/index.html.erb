@@ -18,11 +18,11 @@
       <div class = "name">
         <%= current_user.name %>
         <% if current_user %>
-          <p>さま</p>
+          <p>様 ようこそ</p>
         <% end %>
       </div>
     </div>
-   
+  
     <div class = "main-header">
       <div class = "left-header">
         <%= form_with( class: "form") do |form| %>
@@ -36,15 +36,31 @@
         </div>
         <div class = "favorite">
           <a href = "#"><i class="fas fa-bars"></i></a>
+          <div class = "bar-box">
+            <div class = "bar-contents">
+              <div class = "content-btn">
+                <div class = "bar btn-0", data-text-default="献立アプリ起動" data-text-clicked="献立アプリ終了">献立アプリ起動</div>
+                <div class = "bar">拡張子</div>
+                <div class = "bar">拡張子</div>
+                <div class = "bar">拡張子</div>
+                <div class = "bar">拡張子</div>
+                <div class = "bar">拡張子</div>
+                <%# <div class = "bar"></div> %>
+              </div>
+            </div>
+          </div>
         </div>
+        
       </div>
     </div>
+   
   </div>
+  
+  
+    
   <div class = "contents">
     <% @documents.each do |document| %>
-      <%= render partial: 'edit' ,locals: {document: document}%>
       <div class = "content-box">
-        
         <div class = " body-content">
           <div class = "left-content">
             <%= image_tag document.image.to_s, class: "image"%>
@@ -52,9 +68,9 @@
           <div class = "right-content">
             <div class = "top-box">
               <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
-              <%# <%= link_to edit_document_path(document.id), method: :get do %>
-              <i class ="far fa-edit">編集</i>
-              <%# <% end %>
+              <%= link_to edit_document_path(document.id), method: :get do %>
+                <i class ="far fa-edit">編集</i>
+              <% end %>
               <%= link_to document_path(document.id), method: :delete, data: { confirm: '削除しますか？' } do %>
                 <i class="fas fa-trash"></i>
               <% end %>
@@ -63,39 +79,23 @@
             <div class = "bottom-box"><%= simple_format(document.comment) %></div>
           </div>
         </div>
-        
       </div>
-    <%end%>
-    <%# <div class = "content-box">
-      <div class = " body-content">
-        <div class = "left-content">
-          <i class="far fa-image"></i>
-        </div>"/tweets/#{tweet.id}/edit"
-        <div class = "right-content">
-          <div class = "top-box">
-            <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
-            <a href = "#"><i class="far fa-edit">編集</i></a>
-            <a href = "#"><i class="fas fa-trash"></i></a>
-            <div class = "title">title</div>
-          </div>
-          <div class = "bottom-box">comment</div>
-        </div>
-      </div>
-    </div> %>
-
+    <% end %>
   </div>
   <div class="footer">
-    <div class="footer-btn"><p id = "icon">登録の呼び出し</P></div>
+    <div class="footer-btn", data-text-default="&#187;" data-text-clicked="&#171;"><p id = "icon">&#187;</P></div>
     <div class="footer-content">
       <div class = "form-box">
         <div class = "body-form">
           <div class = "left-form">
-            <div>スクリーンショットのやり方</div>
+            <div>スクリーンショット</div>
             <div>ctr + shift + 3 (全体)</div>
             <div>ctr + shift + 4 (範囲指定)</div>
+            <div>私的利用以外では著作権に</div>
+            <div>ご注意ください</div>
           </div>
           <div class = "right-form">
-            <%= form_with(url: documents_path, model: @document, local: true, mathod: :post, class: "new-message") do |form| %>
+            <%= form_with(model: @document, local: true, mathod: :post, class: "new-message") do |form| %>
               <div class = "form-field">
                 <%= form.text_area :title, placeholder: "表題を記入して下さい（90文字まで）。また右記のアイコンから登録したいpngを選択できます。", class: "comment-field", maxlength: "90"%>
                 <%= form.label :image, class: "label-box" do%>
@@ -115,4 +115,23 @@
   </div>
 </div>
 
+<%# ---クッキングアプリ--- z-index: 29; %>
+<%= render 'cooking-apri'%>
+
+<%# <div class = "content-box">
+      <div class = " body-content">
+        <div class = "left-content">
+          <i class="far fa-image"></i>
+        </div>"/tweets/#{tweet.id}/edit"
+        <div class = "right-content">
+          <div class = "top-box">
+            <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
+            <a href = "#"><i class="far fa-edit">編集</i></a>
+            <a href = "#"><i class="fas fa-trash"></i></a>
+            <div class = "title">title</div>
+          </div>
+          <div class = "bottom-box">comment</div>
+        </div>
+      </div>
+    </div> %>
 

@@ -1,21 +1,35 @@
 // Place all the styles related to the documents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body{margin:0;padding:0 }
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  // overflow: hidden;
+}
 .wrapper {
-  background-color: #999999;
+  // background-color: #999999;
+  background-image: url(https://raw.githubusercontent.com/JulianLaval/canvas-particle-network/master/img/demo-bg.jpg);
+  background-size: cover;
   height: 100vh;
   width: 100%;
-  position: relative;
+  // position: relative;
+  // filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.8));
   .header {
-    background-color: #c7c2c2;
+    // background-color: #c7c2c2;
+    background: rgba(250, 250, 250, 0);
     height: 15vh;
     width: 100%;
     display: flex;
+    // position: relative;
     .side-header {
       height: 15vh;
       width: 20%;
-      background-color: #504d4d;
+      // background-color: #504d4d;
+      background: rgba(250, 250, 250, 0);
       .set-header {
         display: flex;
         .fas {
@@ -60,7 +74,8 @@ body{margin:0;padding:0 }
     }
     
     .main-header {
-      background-color: #d1caca;
+      // background-color: #d1caca;
+      background: rgba(250, 250, 250, 0);
       height: 15vh;
       width: 80%;
       display: flex;
@@ -68,7 +83,8 @@ body{margin:0;padding:0 }
       .left-header {
         height: 13vh;
         width: 80%;
-        background-color: #ffffff;
+        // background-color: #ffffff;
+        background: rgba(250, 250, 250, 0);
         margin: 1vh auto;
         margin-left: 2%;
         margin-right: 2%;
@@ -76,7 +92,8 @@ body{margin:0;padding:0 }
           height: 13vh;
           width: 100%;
           .search-box {
-            background-color: #d8d6d6;
+            // background-color: #d8d6d6;
+            background: rgba(250, 250, 250, 0);
             width: 70%;
             height: 5vh;
             margin: 7vh 0 0 1%;
@@ -97,11 +114,13 @@ body{margin:0;padding:0 }
         }  
       }
       .right-header {
-        background-color: #504d4d;
+        // background-color: #504d4d;
+        background: rgba(250, 250, 250, 0);
         height: 15vh;
         width: 20%;
         display: flex;
         justify-content: flex-end;
+        position: relative;
         .favorite {
           margin-right: 5%;
           .fa-star {
@@ -119,29 +138,73 @@ body{margin:0;padding:0 }
             margin-top: 10vh;
             color: #CCC;
             &:hover {
-              color:#ffffff;
+              color: white;
+            }
+          }
+          .bar-box {
+            position: absolute;
+            right: 0;
+            width: 80%;
+            background: rgba(250, 250, 250, 0);
+            border: 1px solid #c7c2c2;
+            margin-top: 3px;
+            z-index: 30;
+            display: none;
+            .bar-contents {
+              .contents-btn {
+                height: 5vh;
+                width: 85%;
+                position: fixed;
+                border: 1px solid #c7c2c2;
+              }
+              .bar {
+                margin-left: 5px;
+                border: 1px solid #c7c2c2;
+                margin: 5px;
+                color: #ccc;
+                cursor: pointer;
+                user-select: none;
+                &:hover {
+                  opacity: 1; 
+                  //  これは透過の度
+                  color: #555353;
+                  //  hoverがかかった時の文字色
+                  background-color: #dbe3e6;
+                  //  実際にhoverにかかる色
+                  transition: 0.4s;
+                  // hoverがかかり終わるまでの時
+                }
+              }
             }
           }
         }
       }
     }
   }
+
+  
+
   .contents {
-    background-color: #f1ecec;
+    // background-color: #f1ecec;
+    background: rgba(250, 250, 250, 0);
     height: 80vh; 
-    width: 88%;
-    margin: 10px auto;
+    width: 75%;
+    margin: 0 auto;
     filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.8));
     overflow: scroll;
+    border-top: 1px solid #c7c2c2;
+    border-bottom: 1px solid #c7c2c2;
+    // position: fixed;
     .content-box {
-      background-color: rgb(104, 101, 101);
+      // background-color: rgb(104, 101, 101);
+      background: rgba(250, 250, 250, 0);
       height: 45vh;
-      width: 80%;
+      width: 92%;
       margin: 15px auto;
       display: flex;
       align-items: center;
       // border: solid 1px #f6f6f6;
-      filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
+      // filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
       .body-content {
         border: 1px solid #c7c2c2;
         margin: 0 auto;
@@ -150,13 +213,16 @@ body{margin:0;padding:0 }
         display: flex;
         justify-content: space-between;
         align-items: center;
+        // filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.8));
         .left-content {
-          background-color: rgb(104, 101, 101);
+          // background-color: rgb(104, 101, 101);
+          background: rgba(247, 244, 244, 0.15);
           height: 40vh;
           width: 45%;
           margin: 0 5px;
           border: 1px solid #c7c2c2;
           text-align: center;
+          overflow: auto;
           .image {
             padding-top: 1vh;
           }
@@ -167,13 +233,15 @@ body{margin:0;padding:0 }
           }
         }
         .right-content {
-          background-color: rgb(104, 101, 101);
+          // background-color: rgb(104, 101, 101);
+          background: rgba(250, 250, 250, 0);
           height: 40vh;
           width: 55%;
           margin-right: 5px;
           
           .top-box {
-            background-color: rgb(104, 101, 101);
+            // background-color: rgb(104, 101, 101);
+            background: rgba(250, 250, 250, 0);
             height: 20vh;
             width: 100%;
             // display: flex;
@@ -209,20 +277,26 @@ body{margin:0;padding:0 }
               }
             }
             .title {
-              background-color: #fff;
+              // background-color: #fff;
+              background: rgba(250, 250, 250, 0);
+              border: 1px solid #c7c2c2;
               height: 10vh;
               width: 98%;
               margin: 2vh 3% 0 1%;
               // margin-left: 5px;
               font-size: 100%;
               box-sizing:border-box;
-              border:none;
+              // border:none;
               resize: none;
+              padding: 0 2%;
+              color: white;
             }
             
           }
           .bottom-box {
-            background-color: #fff;
+            // background-color: #fff;
+            background: rgba(250, 250, 250, 0);
+            border: 1px solid #c7c2c2;
             height: 18vh;
             width: 98%;
             margin: 0 auto;
@@ -230,8 +304,10 @@ body{margin:0;padding:0 }
             margin: 8px 5px 0 5px;
             font-size: 120%;
             box-sizing:border-box;
-            border:none;
+            // border:none;
             resize: none;
+            padding: 0 2%;
+            color: white;
           }
         }
       }
@@ -250,19 +326,22 @@ body{margin:0;padding:0 }
       width:50px;
       text-align:center;
       padding:10px;
-      background:#333;
+      // background:#333;
+      background: rgba(250, 250, 250, 0);
       color:#eee;
-      font-weight:bold;
+      // font-weight:bold;
+      font-size: 300%;
       cursor:pointer;
       user-select: none;
       &:hover {
-        background:#eee;
-        color:#666;
+        // background:#eee;
+        color:rgb(9, 216, 188);
       }
     }
     .footer-content {
       text-align:center;
-      background:#666;
+      // background:#666;
+      background: rgba(250, 250, 250, 0);
       // opacity: 0.8;
       padding:10px;
       width: 100%;
@@ -271,20 +350,24 @@ body{margin:0;padding:0 }
       .form-box {
         width: 90%;
         height: 20vh;
-        background-color: #fff;
+        // background-color: #fff;
+        background: rgba(250, 250, 250, 0);
         .body-form {
           display: flex;
           justify-content: space-between;
           .left-form {
-            background-color: #e7e0e0;
+            // background-color: #e7e0e0;
+            background: rgba(250, 250, 250, 0);
             height: 18vh;
-            width: 30%;
+            width: 20%;
             text-align: center;
             padding-top: 2vh;
             color: #999999;
           }
           .right-form {
-            background-color: #504d4d;
+            background-color: #242222;
+            filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.8));
+            // background: rgba(250, 250, 250, 0);
             height: 20vh;
             width: 100%;
             .new-message {
@@ -322,6 +405,7 @@ body{margin:0;padding:0 }
                   margin: 1vh 1%;
                   resize: none;
                   font-size: 100%;
+                  // background: rgba(250, 250, 250, 0);
                 }
                 .submit {
                   height: 4vh;

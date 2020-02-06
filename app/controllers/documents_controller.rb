@@ -11,7 +11,7 @@ class DocumentsController < ApplicationController
     # else
     #   @document = Document.new
     # end
-    
+
   end
 
   def create

@@ -1,1 +1,35 @@
-残念
+<div class = "edit-wrapper" >   
+  <div class = "edit-contents">
+    
+    <div class = "edit-content-box" >
+      
+      <div class = " edit-body-content">
+        <div class = "edit-left-content">
+          <%= image_tag @document.image.to_s, class: "edit-image"%>
+        </div>
+        <div class = "edit-right-content">
+          <%= form_with(model: @document, local: true, class: "new-message") do |form| %>
+            <div class = "edit-top-box">
+              <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
+              <%# <%= link_to edit_document_path(@document.id), method: :get do %>
+                <%# 上のコードは使用せず全てform_withに任せた。 %>
+              <i class ="far fa-edit"></i>
+              <%= form.submit value: "編集の確定", class: "edit-submit", data: { confirm: '編集を確定しますか？'} %>
+              <%= link_to root_path do%>
+                <i class="far fa-window-close"> 戻る</i>
+              <% end %>
+              <%= link_to document_path(@document.id), method: :delete, data: { confirm: '削除しますか？' } do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+              <%= form.text_area :title, class: "edit-title", maxlength: "90"%> 
+            </div>
+            <div>
+              <%= form.text_area :comment, class: "edit-bottom-box", maxlength: "130"%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      
+    </div>
+  </div>
+</div>
