@@ -25,8 +25,8 @@
   
     <div class = "main-header">
       <div class = "left-header">
-        <%= form_with( class: "form") do |form| %>
-          <%= form.text_field :keyword, placeholder: "資料を検索する（表題が検索対象です）",class: "search-box" %> 
+        <%= form_with(url: documents_searches_path, method: :get, local: true, class: "form") do |form| %>
+          <%= form.text_field :title, placeholder: "資料の検索（検索対象は表題から）資料の登録は画面右下の矢印をクリックです",class: "search-box" %> 
           <%= form.submit "検索", class: 'search-btn'%>
         <% end %>
       </div>
@@ -59,29 +59,36 @@
   
     
   <div class = "contents">
+    
     <% @documents.each do |document| %>
-      <div class = "content-box">
-        <div class = " body-content">
-          <div class = "left-content">
-            <%= image_tag document.image.to_s, class: "image"%>
-          </div>
-          <div class = "right-content">
-            <div class = "top-box">
-              <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
-              <%= link_to edit_document_path(document.id), method: :get do %>
-                <i class ="far fa-edit">編集</i>
-              <% end %>
-              <%= link_to document_path(document.id), method: :delete, data: { confirm: '削除しますか？' } do %>
-                <i class="fas fa-trash"></i>
-              <% end %>
-              <div class = "title"><%= simple_format(document.title) %></div>  
+      <% if user_signed_in? && current_user.id == document.user_id%>
+        <%# <%= render partial: 'default-image', locals: {document: document} %> 
+        <div class = "content-box">
+        
+          <div class = " body-content">
+            <%= link_to "#{document.image.to_s}", target: "_blank", class: "left-content" do %>
+              <%= image_tag document.image.to_s, class: "image" %>
+              
+            <% end %>
+            <div class = "right-content">
+              <div class = "top-box">
+                <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
+                <%= link_to edit_document_path(document.id), method: :get do %>
+                  <i class ="far fa-edit">編集</i>
+                <% end %>
+                <%= link_to document_path(document.id), method: :delete, data: { confirm: '削除しますか？' } do %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
+                <div class = "title"><%= simple_format(document.title) %></div>  
+              </div>
+              <div class = "bottom-box"><%= simple_format(document.comment) %></div>
             </div>
-            <div class = "bottom-box"><%= simple_format(document.comment) %></div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
+  
   <div class="footer">
     <div class="footer-btn", data-text-default="&#187;" data-text-clicked="&#171;"><p id = "icon">&#187;</P></div>
     <div class="footer-content">
@@ -91,20 +98,23 @@
             <div>スクリーンショット</div>
             <div>ctr + shift + 3 (全体)</div>
             <div>ctr + shift + 4 (範囲指定)</div>
-            <div>私的利用以外では著作権に</div>
-            <div>ご注意ください</div>
+            <div>私的利用以外での使用は</div>
+            <div>著作権にご注意ください</div>
           </div>
           <div class = "right-form">
+            <div class = "image-area"><p class = "image-area__p">no image</p>
+              <div class = "sub-area"></div>
+            </div>
             <%= form_with(model: @document, local: true, mathod: :post, class: "new-message") do |form| %>
               <div class = "form-field">
-                <%= form.text_area :title, placeholder: "表題を記入して下さい（90文字まで）。また右記のアイコンから登録したいpngを選択できます。", class: "comment-field", maxlength: "90"%>
+                <%= form.text_area :title, placeholder: "表題を記入して下さい（114文字まで、改行は３行まで）。また右記のアイコンから登録したいpngを選択できます。", class: "comment-field", maxlength: "90"%>
                 <%= form.label :image, class: "label-box" do%>
                 <%= form.file_field :image, class: "file_field", style: "display: none;" %>
                   <i class="far fa-image"></i>
                 <%end%>
               </div>
               <div class = "area-box">
-                <%= form.text_area :comment, placeholder: "自由記入欄（130文字まで）", class: "comment-area", maxlength: "130"%>
+                <%= form.text_area :comment, placeholder: "自由記入欄（160文字まで、改行は５行まで）", class: "comment-area", maxlength: "130"%>
                 <%= form.submit value: "登録", class: "submit"%>
               </div>
             <% end %>
@@ -116,8 +126,14 @@
 </div>
 
 <%# ---クッキングアプリ--- z-index: 29; %>
+
 <%= render 'cooking-apri'%>
 
+<%# <% @documents.each do |document| %> 
+  <%# <% if user_signed_in? && current_user.id == document.user_id%> 
+    <%# <%= render partial: 'default-image', locals: {document: document} %> 
+  <%# <% end %> 
+<%# <% end %> 
 <%# <div class = "content-box">
       <div class = " body-content">
         <div class = "left-content">
@@ -134,4 +150,6 @@
         </div>
       </div>
     </div> %>
+
+    <%# :size =>'400x300' %>
 

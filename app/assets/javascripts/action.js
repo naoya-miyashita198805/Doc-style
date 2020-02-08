@@ -2,9 +2,14 @@ $(function(){
 
   // ---アプリバーのアクション---
 
-  $('.fa-bars').on('click', function(e){
+  $('.fa-bars').on('mouseenter', function(e){
     e.preventDefault();
-    $('.bar-box').fadeToggle(200);
+    $('.bar-box').fadeIn(200);
+  })
+
+  $('.bar-box').on('mouseleave', function(e){
+    e.preventDefault();
+    $('.bar-box').fadeOut(200);
   })
 
   // ---献立アプリ起動---
@@ -21,8 +26,6 @@ $(function(){
 
     $(this).html(text);
   });
-
-
 
   // ---フッターバーのアクション---
 
