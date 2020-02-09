@@ -40,7 +40,7 @@
             <div class = "bar-contents">
               <div class = "content-btn">
                 <div class = "bar btn-0", data-text-default="献立アプリ起動" data-text-clicked="献立アプリ終了">献立アプリ起動</div>
-                <div class = "bar">拡張子</div>
+                <div class = "bar btn-1">拡張子</div>
                 <div class = "bar">拡張子</div>
                 <div class = "bar">拡張子</div>
                 <div class = "bar">拡張子</div>
@@ -58,17 +58,16 @@
   
   
     
-  <div class = "contents">
+  <div class = "contents" >
     
     <% @documents.each do |document| %>
       <% if user_signed_in? && current_user.id == document.user_id%>
         <%# <%= render partial: 'default-image', locals: {document: document} %> 
-        <div class = "content-box">
+        <div class = "content-box" >
         
-          <div class = " body-content">
+          <div class = "body-content">
             <%= link_to "#{document.image.to_s}", target: "_blank", class: "left-content" do %>
-              <%= image_tag document.image.to_s, class: "image" %>
-              
+              <%= image_tag document.image.to_s, class: "image" %>   
             <% end %>
             <div class = "right-content">
               <div class = "top-box">
@@ -76,6 +75,7 @@
                 <%= link_to edit_document_path(document.id), method: :get do %>
                   <i class ="far fa-edit">編集</i>
                 <% end %>
+                保存日時:<%= simple_time(document.created_at) %>
                 <%= link_to document_path(document.id), method: :delete, data: { confirm: '削除しますか？' } do %>
                   <i class="fas fa-trash"></i>
                 <% end %>
@@ -96,25 +96,28 @@
         <div class = "body-form">
           <div class = "left-form">
             <div>スクリーンショット</div>
-            <div>ctr + shift + 3 (全体)</div>
-            <div>ctr + shift + 4 (範囲指定)</div>
+            <div>キーボード操作</div>
+            <div>&#8984; + &#8679;(shift) + 3 (全体)</div>
+            <div>&#8984; + &#8679;(shift) + 4 (範囲)</div>
             <div>私的利用以外での使用は</div>
             <div>著作権にご注意ください</div>
           </div>
           <div class = "right-form">
-            <div class = "image-area"><p class = "image-area__p">no image</p>
-              <div class = "sub-area"></div>
+            <div class = "image-area">
+              <p class = "image-area__p">no image</p>
+              <img id="file-preview">
             </div>
             <%= form_with(model: @document, local: true, mathod: :post, class: "new-message") do |form| %>
+            
               <div class = "form-field">
-                <%= form.text_area :title, placeholder: "表題を記入して下さい（114文字まで、改行は３行まで）。また右記のアイコンから登録したいpngを選択できます。", class: "comment-field", maxlength: "90"%>
+                <%= form.text_area :title, placeholder: "表題を記入して下さい（102文字まで、改行は３行まで推奨）。また右記のアイコンから登録したいpngを選択できます。", class: "comment-field", maxlength: "90"%>
                 <%= form.label :image, class: "label-box" do%>
                 <%= form.file_field :image, class: "file_field", style: "display: none;" %>
                   <i class="far fa-image"></i>
                 <%end%>
               </div>
               <div class = "area-box">
-                <%= form.text_area :comment, placeholder: "自由記入欄（160文字まで、改行は５行まで）", class: "comment-area", maxlength: "130"%>
+                <%= form.text_area :comment, placeholder: "自由記入欄（160文字まで、改行は５行推奨）ここだけでの保存はできません。画像を入れるか表題を記入してください。", class: "comment-area", maxlength: "130"%>
                 <%= form.submit value: "登録", class: "submit"%>
               </div>
             <% end %>

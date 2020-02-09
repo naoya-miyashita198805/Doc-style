@@ -28,6 +28,7 @@ body {
     .side-header {
       height: 15vh;
       width: 20%;
+      margin-left: 2%;
       // background-color: #504d4d;
       background: rgba(250, 250, 250, 0);
       .set-header {
@@ -97,13 +98,14 @@ body {
             background: rgba(250, 250, 250, 0);
             width: 70%;
             height: 5vh;
-            margin: 7vh 0 0 1%;
+            margin: 6vh 0 0 1%;
             border-style: none;
             padding: 0 5px 0 5px;
             border: 1px solid #c7c2c2;
             color: #CCC;
           }
           .search-btn {
+            // background-color: #7c7777;
             background-color: #7c7777;
             width: 10%;
             height: 5vh;
@@ -112,6 +114,17 @@ body {
             text-align: center;
             line-height: 5vh;
             font-size: large;
+            color: white;
+            &:hover {
+              opacity: 1; 
+              //  これは透過の度
+              color: #555353;
+              //  hoverがかかった時の文字色
+              background-color: #dbe3e6;
+              //  実際にhoverにかかる色
+              transition: 0.4s;
+              // hoverがかかり終わるまでの時
+            }
           }
         }  
       }
@@ -260,6 +273,7 @@ body {
             width: 100%;
             // display: flex;
             position: relative;
+            color: #CCC;
             .fa-star {
               font-size: 150%;
               margin-top: 3vh;
@@ -278,6 +292,9 @@ body {
               &:hover {
                 color: skyblue;
               }
+            }
+            .created-time {
+              color: #CCC;
             }
             .fas {
               font-size: 150%;
@@ -298,7 +315,7 @@ body {
               width: 98%;
               margin: 2vh 5px 0 5px;
               // margin-left: 5px;
-              font-size: 90%;
+              font-size: 100%;
               box-sizing:border-box;
               // border:none;
               resize: none;
@@ -395,13 +412,17 @@ body {
               background: rgba(247, 244, 244, 0.15);
               margin: 2vh auto;
               margin-left: 1%;
-              border: 1px solid #c7c2c2;
+              // border: 1px solid #c7c2c2;
+              position: relative;
               &__p {
                 color: #CCC;
                 text-align: center;
                 line-height: 26vh;
               }
-              .sub-area {
+              #file-preview {
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 26Vh;
                 max-width: 100%;
@@ -414,7 +435,7 @@ body {
                 display: flex;
                 .comment-field {
                   height: 9vh;
-                  width: 85%;
+                  width: 76%;
                   margin: 1vh 1%;
                   resize: none;
                 }
@@ -440,10 +461,10 @@ body {
                 display: flex;
                 .comment-area {
                   height: 17vh;
-                  width: 85%;
-                  margin: 1vh 1%;
+                  width: 76%;
+                  margin: 0 1% 2vh 1%;
                   resize: none;
-                  font-size: 120%;
+                  font-size: 106%;
                   // margin-left: 15%;
                   // background: rgba(250, 250, 250, 0);
                 }
@@ -454,6 +475,19 @@ body {
                   margin-top: 7vh;
                   cursor: pointer;
                   margin-left: 2%;
+                  background-color: #686464;
+                  color: white;
+                  border: 1px solid #c7c2c2;
+                  &:hover {
+                    opacity: 1; 
+                    //  これは透過の度
+                    color: #555353;
+                    //  hoverがかかった時の文字色
+                    background-color: #dbe3e6;
+                    //  実際にhoverにかかる色
+                    transition: 0.4s;
+                    // hoverがかかり終わるまでの時
+                  }
                 }
               }
             }
