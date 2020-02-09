@@ -4,9 +4,9 @@
     <div class = "edit-content-box" >
       
       <div class = " edit-body-content">
-        <div class = "edit-left-content">
+        <%= link_to "#{@document.image.to_s}", target: "_blank", class: "edit-left-content" do %>
           <%= image_tag @document.image.to_s, class: "edit-image"%>
-        </div>
+         <% end %>
         <div class = "edit-right-content">
           <%= form_with(model: @document, local: true, class: "new-message") do |form| %>
             <div class = "edit-top-box">
