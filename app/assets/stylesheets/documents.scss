@@ -406,30 +406,37 @@ body {
             height: 30vh;
             width: 87%;
             display: flex;
-            .image-area {
+            .image-area-cover {
               width: 45%;
               height: 26vh;
-              // background: rgba(250, 250, 250, 0);
-              background: rgba(247, 244, 244, 0.15);
-              margin: 2vh auto;
-              margin-left: 1%;
-              // border: 1px solid #c7c2c2;
-              position: relative;
-              &__p {
-                color: #CCC;
-                text-align: center;
-                line-height: 26vh;
-              }
-              #file-preview {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 26Vh;
+              // 追記箇所用途は不明
+              .image-area {
+                
+                // background: rgba(250, 250, 250, 0);
+                background: rgba(247, 244, 244, 0.15);
+                margin: 2vh auto;
+                margin-left: 1%;
+                // border: 1px solid #c7c2c2;
+                position: relative;
                 max-width: 100%;
                 height: 100%;
+                &__p {
+                  color: #CCC;
+                  text-align: center;
+                  line-height: 26vh;
+                }
+                #file-preview {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  // width: 100%;
+                  // height: 26Vh;
+                  max-width: 100%;
+                  height: 100%;
+                }
               }
             }
+            
             .new-message {
               width: 100%;
               .form-field {

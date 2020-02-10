@@ -33,7 +33,9 @@
       </div>
       <div class = "right-header">
         <div class = "favorite">
-          <a href = "#"><i class="fas fa-star"></i></a>
+          <%= link_to document_path(current_user.id), method: :get do %>
+            <i class="fas fa-star"></i>
+          <% end %>
         </div>
         <div class = "favorite">
           <a href = "#"><i class="fas fa-bars"></i></a>
@@ -69,7 +71,11 @@
             <% end %>
             <div class = "right-content">
               <div class = "top-box">
-                <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
+                <% if user_signed_in? && current_user.id == document.user_id %>
+                  <div style='display: inline; float: left;'>
+                    <%= render 'documents/bookmark_area', document: document %>Book mark
+                  </div>
+                <% end %>
                 <%= link_to edit_document_path(document.id), method: :get do %>
                   <i class ="far fa-edit">編集</i>
                 <% end %>

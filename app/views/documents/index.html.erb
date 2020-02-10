@@ -111,9 +111,11 @@
             <div>著作権にご注意ください</div>
           </div>
           <div class = "right-form">
-            <div class = "image-area">
-              <p class = "image-area__p">no image</p>
-              <img id="file-preview">
+            <div class = "image-area-cover">
+              <div class = "image-area">
+                <p class = "image-area__p">no image
+                <img id="file-preview"></p>
+              </div>
             </div>
             <%= form_with(model: @document, local: true, mathod: :post, class: "new-message") do |form| %>
             
