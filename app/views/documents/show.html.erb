@@ -25,7 +25,7 @@
   
     <div class = "main-header">
       <div class = "left-header">
-       <%= link_to "こちらは検索結果ページです。戻る場合はここをクリックしてください", root_path ,class: "search-root-path"%>
+       <%= link_to "こちらはBook Markページです。戻る場合はここをクリックしてください", root_path ,class: "search-root-path"%>
         <%= form_with(url: documents_searches_path, method: :get, local: true, class: "form") do |form| %>
           <%= form.text_field :title, placeholder: "資料を検索する",class: "search-index-box" %> 
           <%= form.submit "検索", class: 'search-index-btn'%>
@@ -57,32 +57,62 @@
    
   </div>
   
-  
-    
-  <div class = "contents">
-    <% @documents.each do |document| %>
-      <% if user_signed_in? && current_user.id == document.user_id%>
-        <div class = "content-box">
-          <div class = " body-content" > 
-            <%= link_to "#{document.image.to_s}", target: "_blank", class: "left-content" do %>
-              <%= image_tag document.image.to_s, class: "image" %>
+  <div class = "contents" >
+    <%# <% if user_signed_in? == current_user.id%> %>
+    <% @bookmarks.each do |bookmark| %>
+      <% if user_signed_in? && current_user.id == bookmark.user.id%>
+        <%# <%= render partial: 'default-image', locals: {document: document} %> 
+        <div class = "content-box" >
+        
+          <div class = "body-content">
+            <%= link_to "#{bookmark.document.image.to_s}", target: "_blank", class: "left-content" do %>
+              <%= image_tag bookmark.document.image.to_s, class: "image" %>   
             <% end %>
             <div class = "right-content">
               <div class = "top-box">
-                <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
-                <%= link_to edit_document_path(document.id), method: :get do %>
+                <%# <div class="row d-flex"> %>
+                  <%# <% if user_signed_in? && current_user.id == document.user_id %>
+                    <%# <a href = "#"><i class="far fa-star">お気に入り登録</i></a> %>
+                      <%# <%= render partial: 'document', document: document %>
+                    <%# <div style='display: inline; float: left;'> %>
+                      <%# <%= render 'documents/bookmark_area', document: document %>
+                    <%# </div> %>
+                  <%# <% end %>
+                <%# </div>  %>
+                <%= link_to edit_document_path(bookmark.document.id), method: :get do %>
                   <i class ="far fa-edit">編集</i>
                 <% end %>
-                <%= link_to document_path(document.id), method: :delete, data: { confirm: '削除しますか？' } do %>
+                保存日時:<%= simple_time(bookmark.document.created_at) %>
+                <%= link_to document_path(bookmark.document.id), method: :delete, data: { confirm: '削除しますか？' } do %>
                   <i class="fas fa-trash"></i>
                 <% end %>
-                <div class = "title"><%= simple_format(document.title) %></div>  
+                <div class = "title"><%= simple_format(bookmark.document.title) %></div>  
               </div>
-              <div class = "bottom-box"><%= simple_format(document.comment) %></div>
+              <div class = "bottom-box"><%= simple_format(bookmark.document.comment) %></div>
             </div>
           </div>
         </div>
-      <% end %>
+       <% end %>
     <% end %>
+    <%# <% end %>
   </div>
 </div>
+
+<%# <% if user_signed_in? && current_user.id == @post.user_id %>
+  <%# <div class="postManage"> %>
+    <%# <%= link_to "編集", edit_post_path(@post.id), class: "postManage__edit" %>
+    <%# <%= link_to "削除", post_path(@post.id), method: :delete, class: "postManage__delete" %>
+  <%# </div> %>
+<%# <% end %>
+
+<%# <div class = "bookmarks"> %>
+  <%# <% @bookmarks.each do |book| %>
+    <%# <% if user_signed_in? && current_user.id == book.user_id %>
+      <%# <%= book.user.nickname %>
+      <%# <%= book.id %>
+      <%# <%= book.post.title %>
+    <%# <% end %>
+  <%# <% end %>
+  <%# <div class="postText"> %>
+    <%# <%= simple_format @post.content%>
+  <%# </div> %>

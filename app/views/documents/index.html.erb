@@ -1,6 +1,6 @@
 <div class = "wrapper">
-  <div class = "t-header">
-    <div class = "side-header">
+  <div class = "header">
+    <div class = "side-header"> 
       <div class = "set-header">
         <a href = "#"><i class="fas fa-cubes"></i></a>
         <div class = "devise-box">
@@ -30,11 +30,11 @@
           <%= form.submit "検索", class: 'search-btn'%>
         <% end %>
       </div>
-      <div class = "right-header">
+      <div class = "right-header">     
         <div class = "favorite">
-          <a href = "#"><i class="fas fa-star"></i></a>
-        </div>
-        <div class = "favorite">
+          <%= link_to document_path(current_user.id), method: :get do %>
+            <i class="fas fa-star"></i>
+          <% end %>
           <a href = "#"><i class="fas fa-bars"></i></a>
           <div class = "bar-box">
             <div class = "bar-contents">
@@ -64,14 +64,22 @@
       <% if user_signed_in? && current_user.id == document.user_id%>
         <%# <%= render partial: 'default-image', locals: {document: document} %> 
         <div class = "content-box" >
-        
+          <%# <%= link_to document_path(document.id), method: :get %> %>
           <div class = "body-content">
             <%= link_to "#{document.image.to_s}", target: "_blank", class: "left-content" do %>
               <%= image_tag document.image.to_s, class: "image" %>   
             <% end %>
             <div class = "right-content">
               <div class = "top-box">
-                <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
+                <%# <div class="row d-flex"> %>
+                <% if user_signed_in? && current_user.id == document.user_id %>
+                  <%# <a href = "#"><i class="far fa-star">お気に入り登録</i></a> %>
+                  <%# <%= render partial: 'document', document: document %>
+                  <div style='display: inline; float: left;'>
+                    <%= render 'documents/bookmark_area', document: document %>Book mark
+                  </div>
+                <% end %>
+                <%# </div> %>
                 <%= link_to edit_document_path(document.id), method: :get do %>
                   <i class ="far fa-edit">編集</i>
                 <% end %>
