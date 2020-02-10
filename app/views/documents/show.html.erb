@@ -32,9 +32,9 @@
         <% end %>
       </div>
       <div class = "right-header">
-        <div class = "favorite">
-          <a href = "#"><i class="fas fa-star"></i></a>
-        </div>
+        <%# <div class = "favorite"> %>
+          <%# <a href = "#"><i class="fas fa-star"></i></a> %>
+        <%# </div> %>
         <div class = "favorite">
           <a href = "#"><i class="fas fa-bars"></i></a>
           <div class = "bar-box">
@@ -70,15 +70,11 @@
             <% end %>
             <div class = "right-content">
               <div class = "top-box">
-                <%# <div class="row d-flex"> %>
-                  <%# <% if user_signed_in? && current_user.id == document.user_id %>
-                    <%# <a href = "#"><i class="far fa-star">お気に入り登録</i></a> %>
-                      <%# <%= render partial: 'document', document: document %>
-                    <%# <div style='display: inline; float: left;'> %>
-                      <%# <%= render 'documents/bookmark_area', document: document %>
-                    <%# </div> %>
-                  <%# <% end %>
-                <%# </div>  %>
+                <% if user_signed_in? && current_user.id == bookmark.document.user_id %>
+                  <div style='display: inline; float: left;'>
+                    <%= render 'documents/bookmark_show_area', document: bookmark %>Book mark
+                  </div>
+                <% end %>
                 <%= link_to edit_document_path(bookmark.document.id), method: :get do %>
                   <i class ="far fa-edit">編集</i>
                 <% end %>
