@@ -1,13 +1,15 @@
 class DocumentsController < ApplicationController
   # before_action :set_document, only: [:edit]
   # validates :title, :comment, :image, presence: true
-  
+  # def new
+  #   @document = Document.new
+  # end
 
 
   def index
-    @documents = Document.all.order("created_at DESC")
+    @documents = Document.all.includes(:user).order("created_at DESC")
     @document = Document.new
-    
+    # @bookmarks = Bookmark.all
     # @document = Document.find(params[:id])
     # if params[:id].present?
     #   @document = Document.find(params[:id])
@@ -57,6 +59,20 @@ class DocumentsController < ApplicationController
     #   render edit_document_path
     # end
   end
+
+  def show
+    
+    @bookmarks = Bookmark.all.includes(:user).order("created_at DESC")
+    # 中間テーブルでやってしまった結果がshowペーじが酷すぎる
+    # @document = Document.find(params[:id])
+  end
+  
+  def bookmarks
+    @documents = current_user.bookmark_documents.includes(:user).recent
+  end
+
+
+  
 
   private
 
