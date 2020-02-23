@@ -1,0 +1,35 @@
+<% documents.each do |document| %>
+  <% if user_signed_in? && current_user.id == document.user_id%>
+    <%# <%= render partial: 'default-image', locals: {document: document} 備忘録%> 
+    <div class = "content-box" >
+      <%# <%= link_to document_path(document.id), method: :get 備忘録%>
+      <div class = "body-content">
+        <%= link_to "#{document.image.to_s}", target: "_blank", class: "left-content" do %>
+          <%= image_tag document.image.to_s, class: "image" %>   
+        <% end %>
+        <div class = "right-content">
+          <div class = "top-box">
+            <%# <div class="row d-flex"> 備忘録%>
+            <% if user_signed_in? && current_user.id == document.user_id %>
+              <%# <a href = "#"><i class="far fa-star">お気に入り登録</i>備忘録</a> %>
+              <%# <%= render partial: 'document', document: document 備忘録%>
+              <div style='display: inline; float: left;'>
+                <%= render 'documents/bookmark_area', document: document %>Book mark
+              </div>
+            <% end %>
+            <%# </div> 備忘録%>
+            <%= link_to edit_document_path(document.id), method: :get do %>
+              <i class ="far fa-edit">編集</i>
+            <% end %>
+            保存日時:<%= simple_time(document.created_at) %>
+            <%= link_to document_path(document.id), method: :delete, data: { confirm: '削除しますか？' } do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
+            <div class = "title"><%= simple_format(document.title) %></div>  
+          </div>
+          <div class = "bottom-box"><%= simple_format(document.comment) %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

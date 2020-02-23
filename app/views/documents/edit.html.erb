@@ -1,8 +1,6 @@
 <div class = "edit-wrapper" >   
   <div class = "edit-contents">
-    
     <div class = "edit-content-box" >
-      
       <div class = " edit-body-content">
         <%= link_to "#{@document.image.to_s}", target: "_blank", class: "edit-left-content" do %>
           <%= image_tag @document.image.to_s, class: "edit-image"%>
@@ -10,11 +8,14 @@
         <div class = "edit-right-content">
           <%= form_with(model: @document, local: true, class: "new-message") do |form| %>
             <div class = "edit-top-box">
-              <a href = "#"><i class="far fa-star">お気に入り登録</i></a>
+              <div style='display: inline; float: left;'>
+                <%= render partial:'documents/bookmark_area', locals:{document: @document} %>book mark
+              </div>
+              <%# <a href = "#"><i class="far fa-star">お気に入り登録</i></a> %>
               <%# <%= link_to edit_document_path(@document.id), method: :get do %>
                 <%# 上のコードは使用せず全てform_withに任せた。 %>
               <i class ="far fa-edit"></i>
-              <%= form.submit value: "編集の確定", class: "edit-submit", data: { confirm: '編集を確定しますか？'} %>
+                <%= form.submit value: "編集の確定", class: "edit-submit", data: { confirm: '編集を確定しますか？'} %>
               <%= link_to root_path do%>
                 <i class="far fa-window-close"> 戻る</i>
               <% end %>
@@ -29,7 +30,6 @@
           </div>
         <% end %>
       </div>
-      
     </div>
   </div>
 </div>

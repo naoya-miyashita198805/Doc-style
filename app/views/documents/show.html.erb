@@ -1,69 +1,14 @@
 <div class = "wrapper">
   <div class = "header">
-    <div class = "side-header">
-      <div class = "set-header">
-        <a href = "#"><i class="fas fa-cubes"></i></a>
-        <div class = "devise-box">
-          <% if user_signed_in? %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log"%>
-          <div class = "sign"></div>
-          <% else %>
-          <%= link_to "ログイン",  new_user_session_path, class: "log"%>
-          <%= link_to "新規登録", new_user_registration_path, class: "sign"%>
-          <%# <div class = "log-in">ログイン</div> %>
-          <%# <div class = "sign-up">新規登録</div> %>
-          <% end %>
-        </div>
-      </div>
-      <div class = "name">
-        <%= current_user.name %>
-        <% if current_user %>
-          <p>様 ようこそ</p>
-        <% end %>
-      </div>
-    </div>
-  
-    <div class = "main-header">
-      <div class = "left-header">
-       <%= link_to "こちらはBook Markページです。戻る場合はここをクリックしてください", root_path ,class: "search-root-path"%>
-        <%= form_with(url: documents_searches_path, method: :get, local: true, class: "form") do |form| %>
-          <%= form.text_field :title, placeholder: "資料を検索する",class: "search-index-box" %> 
-          <%= form.submit "検索", class: 'search-index-btn'%>
-        <% end %>
-      </div>
-      <div class = "right-header">
-        <%# <div class = "favorite"> %>
-          <%# <a href = "#"><i class="fas fa-star"></i></a> %>
-        <%# </div> %>
-        <div class = "favorite">
-          <a href = "#"><i class="fas fa-bars"></i></a>
-          <div class = "bar-box">
-            <div class = "bar-contents">
-              <div class = "content-btn">
-                <div class = "bar btn-0", data-text-default="献立アプリ起動" data-text-clicked="献立アプリ終了">献立アプリ起動</div>
-                <div class = "bar">拡張子</div>
-                <div class = "bar">拡張子</div>
-                <div class = "bar">拡張子</div>
-                <div class = "bar">拡張子</div>
-                <div class = "bar">拡張子</div>
-                <%# <div class = "bar"></div> %>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-   
+    <%= render partial: 'header' %> 
   </div>
   
   <div class = "contents" >
-    <%# <% if user_signed_in? == current_user.id%> %>
+    <%# <% if user_signed_in? == current_user.id%>
     <% @bookmarks.each do |bookmark| %>
       <% if user_signed_in? && current_user.id == bookmark.user.id%>
         <%# <%= render partial: 'default-image', locals: {document: document} %> 
         <div class = "content-box" >
-        
           <div class = "body-content">
             <%= link_to "#{bookmark.document.image.to_s}", target: "_blank", class: "left-content" do %>
               <%= image_tag bookmark.document.image.to_s, class: "image" %>   
@@ -93,6 +38,7 @@
     <%# <% end %>
   </div>
 </div>
+<%= render 'cooking-apri'%>
 
 <%# <% if user_signed_in? && current_user.id == @post.user_id %>
   <%# <div class="postManage"> %>

@@ -1,0 +1,35 @@
+<div class="footer-btn", data-text-default="&#187;" data-text-clicked="&#171;"><p id = "icon">&#187;</P></div>
+    <div class="footer-content">
+      <div class = "form-box">
+        <div class = "body-form">
+          <div class = "left-form">
+            <div>スクリーンショット</div>
+            <div>キーボード操作</div>
+            <div>&#8984; + &#8679;(shift) + 3 (全体)</div>
+            <div>&#8984; + &#8679;(shift) + 4 (範囲)</div>
+            <div>私的利用以外での使用は</div>
+            <div>著作権にご注意ください</div>
+          </div>
+          <div class = "right-form">
+            <div class = "image-area-cover">
+              <div class = "image-area">
+                <%= image_tag "noimage.svg", id: "file-preview" %>
+              </div>
+            </div>
+            <%= form_with(model: @document, local: true, mathod: :post, class: "new-message") do |form| %>
+              <div class = "form-field">
+                <%= form.text_area :title, placeholder: "表題を記入して下さい（102文字まで、改行は３行推奨）。また右記のアイコンから登録したいpngを選択できます。", class: "comment-field", maxlength: "90"%>
+                <%= form.label :image, class: "label-box" do%>
+                <%= form.file_field :image, class: "file_field", style: "display: none;" %>
+                  <i class="far fa-image"></i>
+                <%end%>
+              </div>
+              <div class = "area-box">
+                <%= form.text_area :comment, placeholder: "自由記入欄（160文字まで、改行は５行推奨）ここだけでの保存はできません。画像を入れるか表題を記入してください。", class: "comment-area", maxlength: "130"%>
+                <%= form.submit value: "登録", class: "submit"%>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>

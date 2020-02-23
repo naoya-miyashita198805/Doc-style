@@ -64,7 +64,7 @@ body {
         }
       }
       .name {
-        font-size: 130%;
+        font-size: 100%;
         margin-top: 1vh;
         padding-left: 5px;
         display: flex;
@@ -72,6 +72,7 @@ body {
       }
       .name p {
         font-size: 80%;
+        margin: 5px 0 0 3px;
       }
     }
     
@@ -90,40 +91,55 @@ body {
         margin: 1vh auto;
         margin-left: 2%;
         margin-right: 2%;
+        .search-root-path {
+          color: #CCC;
+          font-size: 130%;
+          padding-top: 5vh;
+          margin-left: 1%;
+          &:hover {
+            color: rgb(20, 231, 13);
+          }
+        }
         .form {
           height: 13vh;
           width: 100%;
-          .search-box {
-            // background-color: #d8d6d6;
-            background: rgba(250, 250, 250, 0);
-            width: 70%;
-            height: 5vh;
-            margin: 6vh 0 0 1%;
-            border-style: none;
-            padding: 0 5px 0 5px;
-            border: 1px solid #c7c2c2;
-            color: #CCC;
-          }
-          .search-btn {
-            // background-color: #7c7777;
-            background-color: #7c7777;
-            width: 10%;
-            height: 5vh;
-            margin: 7vh 0 0 1%;
-            cursor: pointer;
-            text-align: center;
-            line-height: 5vh;
-            font-size: large;
-            color: white;
-            &:hover {
-              opacity: 1; 
-              //  これは透過の度
-              color: #555353;
-              //  hoverがかかった時の文字色
-              background-color: #dbe3e6;
-              //  実際にhoverにかかる色
-              transition: 0.4s;
-              // hoverがかかり終わるまでの時
+          position: relative;
+          .search-main-box {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            .search-box {
+              // background-color: #d8d6d6;
+              background: rgba(250, 250, 250, 0);
+              width: 70%;
+              height: 5vh;
+              margin: 2vh 0 0 1%;
+              border-style: none;
+              padding: 0 5px 0 5px;
+              border: 1px solid #c7c2c2;
+              color: #CCC;
+            }
+            .search-btn {
+              // background-color: #7c7777;
+              background-color: #7c7777;
+              width: 10%;
+              height: 5vh;
+              margin: 3vh 0 0 1%;
+              cursor: pointer;
+              text-align: center;
+              line-height: 5vh;
+              font-size: large;
+              color: white;
+              &:hover {
+                opacity: 1; 
+                //  これは透過の度
+                color: #555353;
+                //  hoverがかかった時の文字色
+                background-color: #dbe3e6;
+                //  実際にhoverにかかる色
+                transition: 0.4s;
+                // hoverがかかり終わるまでの時
+              }
             }
           }
         }  
@@ -138,10 +154,12 @@ body {
         position: relative;
         .favorite {
           margin-right: 5%;
+          // widows: 100%;
           .fa-star {
             font-size: 200%;
             cursor: pointer;
             margin-top: 10vh;
+            margin-right: 20px;
             color: #CCC;
             &:hover {
               color: yellow;
@@ -237,21 +255,14 @@ body {
           margin: 0 5px;
           border: 1px solid #c7c2c2;
           text-align: center;
-          // overflow: auto;
-          // object-fit: cover;
-          // background-size: cover;
           cursor: pointer;
           user-select: none;
-          
           .image {
-            // padding-top: 1vh;
-            // background-size: cover;
-            // background-size: contain;
-            // height: 38vh;
-            // width: 98%;
-            // 全ていらぬ
+            // height: auto;
+            width: auto;
             max-width: 100%;
             height: 100%;
+            object-fit: contain;
           }
           .far {
             font-size: 500%;
@@ -274,14 +285,20 @@ body {
             // display: flex;
             position: relative;
             color: #CCC;
-            .fa-star {
+            .fas {
+              font-size: 150%;
+              margin-top: 3vh;
+              padding: 0 5px;
+              color: yellow;
+              &:hover {
+                color: yellow;
+              }
+            }
+            .far {
               font-size: 150%;
               margin-top: 3vh;
               padding: 0 5px;
               color: #CCC;
-              &:hover {
-                color: yellow;
-              }
             }
             .fa-edit {
               font-size: 150%;
@@ -350,7 +367,6 @@ body {
     z-index:100;
     width:100%;
     bottom:0px;
-    
     // border-top:#222 solid 1px;
     .footer-btn {
       position:fixed;
@@ -411,28 +427,24 @@ body {
               height: 26vh;
               // 追記箇所用途は不明
               .image-area {
-                
                 // background: rgba(250, 250, 250, 0);
                 background: rgba(247, 244, 244, 0.15);
                 margin: 2vh auto;
-                margin-left: 1%;
-                // border: 1px solid #c7c2c2;
+                margin-left: 2%;
+                border: 1px solid #c7c2c2;
                 position: relative;
                 max-width: 100%;
                 height: 100%;
-                &__p {
-                  color: #CCC;
-                  text-align: center;
-                  line-height: 26vh;
-                }
+                color: #CCC;
                 #file-preview {
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  // width: 100%;
-                  // height: 26Vh;
+                  height: auto;
+                  width: auto;
                   max-width: 100%;
                   height: 100%;
+                  object-fit: contain;
+                }
+                &__p {
+
                 }
               }
             }
@@ -451,7 +463,6 @@ body {
                   height: 5vh;
                   width: 5%;
                   margin-top: 1vh;
-                  
                 }
                 .file_field {
                   border-style: none;

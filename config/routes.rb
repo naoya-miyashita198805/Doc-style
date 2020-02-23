@@ -10,13 +10,15 @@ Rails.application.routes.draw do
   
 
  
-  namespace :documents do
-    resources :searches, only: [:index]
+  # namespace :documents do
+  #   resources :searches, only: [:index]
+  # end
+
+  resources :documents, only: [:index, :create, :edit, :destroy, :update, :show] do
+    collection do
+      get 'search', to: 'documents#search'
+    end
   end
-
-  resources :documents, only: [:index, :create, :edit, :destroy, :update, :show]
-
-  
 
   resources :documents, shallow: true do
     resource :bookmarks, only: %i[create destroy]

@@ -16,7 +16,6 @@ class DocumentsController < ApplicationController
     # else
     #   @document = Document.new
     # end
-
   end
 
   def create
@@ -27,7 +26,6 @@ class DocumentsController < ApplicationController
   def edit
     @document = Document.find(params[:id])
       # redirect_back(fallback_location: root_path)
-    
   end
 
   def destroy
@@ -61,25 +59,24 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    
-    @bookmarks = Bookmark.all.includes(:user).order("created_at DESC")
-    # 中間テーブルでやってしまった結果がshowペーじが酷すぎる
+    @bookmarks = Bookmark.all.includes(:user,:document).order("created_at DESC")
+    # 中間テーブルでやってしまった結果がshowペーじが酷すぎるが後学のためやむなし
     # @document = Document.find(params[:id])
+  end
+
+  def search
+    @documents = Document.search(params[:keyword]).order("created_at DESC")
+                          # ↑備忘録findではなくsearchにすべし
   end
   
   def bookmarks
     @documents = current_user.bookmark_documents.includes(:user).recent
   end
 
-
-  
-
   private
 
   def document_params
     params.require(:document).permit(:title, :comment, :image).merge(user_id: current_user.id)
   end
-
-  
 
 end

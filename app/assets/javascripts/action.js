@@ -73,7 +73,7 @@ $(function(){
 
     // img要素に表示
     $('#file-preview').attr('src', blobUrl);
-});
+  });
 
   // ---献立アプリのボタンアクション---
 
