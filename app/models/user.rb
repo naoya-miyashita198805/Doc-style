@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_documents, through: :bookmarks, source: :document
 
+  # お気に入り拡張コード（他人のも使える）
   # def own_document?(document)
   #   self.id == document.user_id
   # end

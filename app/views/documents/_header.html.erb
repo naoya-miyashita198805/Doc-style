@@ -1,0 +1,58 @@
+<div class = "side-header"> 
+  <div class = "set-header">
+    <a href = "https://www.google.co.jp/" target="_blank"><i class="fas fa-cubes"></i></a>
+    <div class = "devise-box">
+      <% if user_signed_in? %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log"%>
+      <div class = "sign"></div>
+      <% else %>
+        <%= link_to "ログイン",  new_user_session_path, class: "log"%>
+        <%= link_to "新規登録", new_user_registration_path, class: "sign"%>
+      <% end %>
+    </div>
+  </div>
+  <div class = "name">
+    <%= current_user.name %>
+    <% if current_user %>
+      <p>様 ようこそ</p>
+    <% end %>
+  </div>
+</div>
+
+<div class = "main-header">
+  <div class = "left-header">
+    <%= form_with(url: search_documents_path, method: :get, local: true, class: "form") do |form| %>
+      <% if current_page?(search_documents_path) %>
+        <%= link_to "こちらは検索結果ページです。戻る場合はここをクリックしてください", root_path ,class: "search-root-path"%>
+      <% end %>
+      <% if current_page?(document_path(current_user.id)) %>
+        <%= link_to "こちらはBook Markページです。戻る場合はここをクリックしてください", root_path ,class: "search-root-path"%>
+      <% end %>
+      <div class = "search-main-box">
+        <%= form.text_field :keyword, placeholder: "資料の検索（検索対象は表題から）資料の登録は画面右下の矢印をクリックです",class: "search-box" %> 
+        <%= form.submit "検索", class: 'search-btn'%>
+      </div>
+    <% end %>
+  </div>
+  <div class = "right-header">     
+    <div class = "favorite">
+      <%= link_to document_path(current_user.id), method: :get do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      <a href = "#"><i class="fas fa-bars"></i></a>
+      <div class = "bar-box">
+        <div class = "bar-contents">
+          <div class = "content-btn">
+            <div class = "bar btn-0", data-text-default="献立アプリ起動" data-text-clicked="献立アプリ終了">献立アプリ起動</div>
+            <div class = "bar btn-1">拡張子</div>
+            <div class = "bar">拡張子</div>
+            <div class = "bar">拡張子</div>
+            <div class = "bar">拡張子</div>
+            <div class = "bar">拡張子</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

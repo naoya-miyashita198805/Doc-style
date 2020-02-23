@@ -1,0 +1,21 @@
+.d-devise-box {
+  height: 60vh;
+  width: 50%;
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  border: 1px solid #c7c2c2;
+  &__content {
+    margin: 0 auto;
+    text-align: center;
+    color: #CCC;
+    height: 58vh;
+    width: 98%;
+    background-color: red;
+    border: 1px solid #c7c2c2;
+    .field {
+      
+    }
+  }
+}

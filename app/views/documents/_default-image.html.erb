@@ -1,14 +1,14 @@
 
 
-<%# <% @documents.each do |document| %> 
-  <% if user_signed_in? && current_user.id == document.user_id%>
-    <div class = "default-image-wrapper">
-      <div class = "default-image-contents">
-        <i class="fas fa-backspace"></i>
-        <div class = "default-image-left-content" >   
-          <%= image_tag document.image.to_s, class: "default-image-image"%>     
-        </div>
-      </div>  
-    </div>
-  <% end %>
+<%# <% @documents.each do |document| 削除しても良い%> 
+  <%# <% if user_signed_in? && current_user.id == document.user_id%>
+    <%# <div class = "default-image-wrapper"> %>
+      <%# <div class = "default-image-contents"> %>
+        <%# <i class="fas fa-backspace"></i> %>
+        <%# <div class = "default-image-left-content" >    %>
+          <%# <%= image_tag document.image.to_s, class: "default-image-image"%>      %>
+        <%# </div> %>
+      <%# </div>   %>
+    <%# </div> %>
+  <%# <% end %>
 <%# <% end %> 
