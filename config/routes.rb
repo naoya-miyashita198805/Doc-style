@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resource :bookmarks, only: %i[create destroy]
     get :bookmarks, on: :collection
   end
+  # shallowはURIをすっき利した表記にさせてくれる
 
  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
