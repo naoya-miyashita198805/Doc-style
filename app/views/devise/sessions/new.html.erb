@@ -1,6 +1,6 @@
-<div class = "wrapper">
-  <div class = "devise-box">
-    <div class = "devise-box__content">
+<div class = "devise">
+  <div class = "devise__box">
+    <div class = "devise__box__content">
       <h2>Log in</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -15,14 +15,14 @@
         </div>
 
         <% if devise_mapping.rememberable? %>
-          <div class="field">
+          <div class="remember-field">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me %>
           </div>
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Log in" %>
+          <%= f.submit "Log in", class: "actions__btn"%>
         </div>
       <% end %>
 
