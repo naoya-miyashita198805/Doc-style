@@ -1,8 +1,6 @@
 .btn-box {
   /* background-color: #efefef; */
-  background-image: url(https://www.kikkoman.co.jp/img/homecook_s0201_010_l.jpg);
-  // max-width: 100%;
-  // height: 100%;
+  background-image: image-url("cooking.jpg");
   background-size: cover;
   height: 80vh;
   width: 78%;
@@ -11,7 +9,6 @@
   position: absolute;
   top: 15vh;
   left: 11%;
-  // display: fixed;
   #act {
     height: 100px;
     width: 100%;
