@@ -11,13 +11,13 @@ $(function(){
     // 公式として覚えておく！
     // switch (n) {
     //   case 0:
-    //     btn.textContent = '大吉';
+    //     btn.textContent = '';
     //     break;
     //   case 1:
-    //     btn.textContent = '中吉';
+    //     btn.textContent = '';
     //     break;
     //   case 2:
-    //     btn.textContent = '凶';
+    //     btn.textContent = '';
     //     break;
     // }
       // const n = Math.random();
