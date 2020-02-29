@@ -13,7 +13,7 @@
             <% if user_signed_in? && current_user.id == document.user_id %>
               <%# <a href = "#"><i class="far fa-star">お気に入り登録</i>備忘録</a> %>
               <%# <%= render partial: 'document', document: document 備忘録%>
-              <div style='display: inline; float: left;'>
+              <div id="bookmark_btn_<%= document.id %>" style='display: inline; float: left;'>
                 <%= render 'documents/bookmark_area', document: document %>Book mark
               </div>
             <% end %>

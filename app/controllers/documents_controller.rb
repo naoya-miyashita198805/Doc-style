@@ -59,7 +59,7 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    @bookmarks = Bookmark.all.includes(:user,:document).order("created_at DESC")
+    @bookmarks = Bookmark.all.includes(:user).order("created_at DESC")
     # 中間テーブルでやってしまった結果がshowペーじが酷すぎるが後学のためやむなし
     # @document = Document.find(params[:id])
   end
