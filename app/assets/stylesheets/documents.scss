@@ -10,6 +10,10 @@ body {
   padding: 0;
   // overflow: hidden;
 }
+a{
+  color: #ccc;
+  text-decoration: none;
+}
 .wrapper {
   // background-color: #999999;
   background-image: image-url("Doc-style-background-image.jpg");
@@ -155,7 +159,7 @@ body {
         .favorite {
           margin-right: 5%;
           // widows: 100%;
-          .fa-star {
+          .fa-bookmark {
             font-size: 200%;
             cursor: pointer;
             margin-top: 10vh;
@@ -285,21 +289,30 @@ body {
             // display: flex;
             position: relative;
             color: #CCC;
-            .fas {
-              font-size: 150%;
-              margin-top: 3vh;
-              padding: 0 5px;
-              color: yellow;
-              &:hover {
+            .bookmark-delete {
+              color: #CCC;
+              text-decoration: none;
+              .fa-bookmark {
+                font-size: 150%;
+                margin-top: 3vh;
+                padding: 0 5px;
                 color: yellow;
+              } 
+            }
+            .bookmark-post {
+              color: #ccc;
+              text-decoration: none;
+              .fa-bookmark {
+                font-size: 150%;
+                margin-top: 3vh;
+                padding: 0 5px;
+                color: #CCC;
+                &:hover {
+                  color: yellow;  
+                }
               }
             }
-            .far {
-              font-size: 150%;
-              margin-top: 3vh;
-              padding: 0 5px;
-              color: #CCC;
-            }
+            
             .fa-edit {
               font-size: 150%;
               margin-top: 3vh;
@@ -444,7 +457,6 @@ body {
                   object-fit: contain;
                 }
                 &__p {
-
                 }
               }
             }

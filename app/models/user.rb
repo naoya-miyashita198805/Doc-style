@@ -12,5 +12,5 @@ class User < ApplicationRecord
   # def own_document?(document)
   #   self.id == document.user_id
   # end
-
+  validates :name, presence: true, length: { maximum: 6 }
 end

@@ -14,7 +14,7 @@
 
 <h2 align="center">献立お助けアプリ</h2>
 
-## 機能:  ボタンを押すたびに料理名がランダムで出現　
+## 機能:  ボタンを押すたびに料理名がランダムで出現
 ### 献立を考える時間の短縮   画面の右端3本バーのアイコンから「献立アプリ起動」を選択
 ### ※料理は開発者の独断と偏見です。あしからず。
 
@@ -36,8 +36,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer||
-|title|string||
+|user_id|integer|foreign_key: true, null: false|
+|title|string|null: false|
 |comment|string||
 |image|text||
 
