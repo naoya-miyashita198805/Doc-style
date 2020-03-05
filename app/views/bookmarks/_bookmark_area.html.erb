@@ -1,0 +1,9 @@
+<% if document.bookmark_by?(current_user) %> 
+  <%# <%= render 'documents/unbookmark', document: document %>
+  <%# <%= link_to icon('fas', 'star'), document_bookmarks_path(document.id), method: :delete, remote: true, id: :"js-bookmark-button-for-document-#{document.id}" %>
+  <%= link_to icon('fas', 'bookmark',"Bookmark"), document_bookmarks_path(document.id), method: :delete, remote: true ,class:"bookmark-delete"%>
+<% else %>
+  <%# <%= render 'documents/bookmark', document: document %>
+  <%= link_to icon('far', 'bookmark',"Bookmark"), document_bookmarks_path(document.id), method: :post, remote: true ,class:"bookmark-post"%>
+<% end %>
+  <%# 部分テンプレート多用は理解のため %>

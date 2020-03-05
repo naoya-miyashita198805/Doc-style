@@ -21,6 +21,7 @@ class Document < ApplicationRecord
 
   def bookmark_by?(user)
     bookmarks.where(user_id: user.id).exists?
+    # documentがbookmarkしてあるかどうかを判定
   end
   
 end

@@ -16,8 +16,8 @@
             <div class = "right-content">
               <div class = "top-box">
                 <% if user_signed_in? && current_user.id == bookmark.document.user_id %>
-                  <div style='display: inline; float: left;'>
-                    <%= render 'documents/bookmark_show_area', document: bookmark %>Book mark
+                  <div id="bookmark_btn_<%= bookmark.document.id %>" style='display: inline; float: left;'>
+                    <%= render 'bookmarks/bookmark_area', document: bookmark.document %>
                   </div>
                 <% end %>
                 <%= link_to edit_document_path(bookmark.document.id), method: :get do %>

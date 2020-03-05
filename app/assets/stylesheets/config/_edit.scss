@@ -107,7 +107,14 @@ body{margin:0;padding:0 }
                 color: skyblue;
               }
             }
-            .fa-star {
+            .fas.fa-bookmark {
+              font-size: 150%;
+              margin-top: 3vh;
+              padding: 0 5px;
+              color: yellow;
+              // アイコンの装飾どこまでで反応するか実証中
+            }
+            .far.fa-bookmark {
               font-size: 150%;
               margin-top: 3vh;
               padding: 0 5px;
@@ -115,18 +122,7 @@ body{margin:0;padding:0 }
               // position: absolute;
               // right: 0;
               &:hover {
-                color:#ffffff;
-              }
-            }
-            .fas {
-              font-size: 150%;
-              margin-top: 3vh;
-              padding: 0 5px;
-              color: yellow;
-              // position: absolute;
-              // right: 0;
-              &:hover {
-                color:#ffffff;
+                color:yellow;
               }
             }
             .fa-trash {

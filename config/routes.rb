@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
-  get 'bookmarks/create'
-  get 'bookmarks/destroy'
-  
+  # get 'bookmarks/create'
+  # get 'bookmarks/destroy'
+  # 現状不要になったが備忘録
   devise_for :users
   root "documents#index"
   
@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   end
 
   resources :documents, shallow: true do
-    resource :bookmarks, only: %i[create destroy]
-    get :bookmarks, on: :collection
+    resource :bookmarks, only: [:create, :destroy]
+    # get :bookmarks, on: :collection
   end
   # shallowはURIをすっき利した表記にさせてくれる
 
