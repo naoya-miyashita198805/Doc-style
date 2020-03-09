@@ -50,6 +50,6 @@ test:
 production:
   <<: *default
   database: Doc-style_production
-  username: Doc-style
+  username: root
   password: <%= ENV['DOC-STYLE_DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
